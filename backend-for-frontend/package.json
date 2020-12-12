@@ -1,0 +1,18 @@
+{
+	"name": "backend-for-frontend",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"dependencies": {
+		"graphql-yoga": "^1.18.3"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.6",
+		"ts-node": "^9.1.1",
+		"typescript": "^4.1.3"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon --ext ts,yaml,graphql --exec 'ts-node' src/index.ts"
+	}
+}
