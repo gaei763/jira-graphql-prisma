@@ -12,7 +12,7 @@ const server = new GraphQLServer({
 	context: (req) => ({
 		...req,
 		db: new Prisma({
-			typeDefs: "src/generated/prisma.graphql", // the generated Prisma DB schema
+			typeDefs: "./src/generated/prisma.graphql", // the generated Prisma DB schema
 			endpoint: "http://localhost:4466", // the endpoint of the Prisma DB service
 			// secret: "mysecret123", // specified in database/prisma.yml
 			debug: true, // log all GraphQL queries & mutations
