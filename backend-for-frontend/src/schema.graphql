@@ -1,18 +1,28 @@
+# import User from "./generated/prisma.graphql"
+# import Category from "./generated/prisma.graphql"
+# import Task from "./generated/prisma.graphql"
+# import Status from "./generated/prisma.graphql"
+
 type Query {
-	posts: [Post!]!
-	post(id: ID!): Post
-	description: String!
+	users: [User!]!
+	loginuser(id: ID!): User
+	categories: [Category!]!
+	tasks: [Task!]!
 }
 
 type Mutation {
-	createDraft(title: String!, content: String): Post
-	deletePost(id: ID!): Post
-	publish(id: ID!): Post
-}
-
-type Post {
-	id: ID!
-	title: String!
-	content: String!
-	published: Boolean!
+	createTask(
+		title: String!
+		description: String
+		criteria: String
+		status: Status!
+		categoryId: ID!
+		estimate: Int
+		ownerId: ID!
+		responsibleId: ID!
+	): Task
+	updateTask(id: ID!): Task
+	deleteTask(id: ID!): Task
+	createUser(relationId: String!, imgPath: String): User
+	createCategory(name: String!): Category
 }

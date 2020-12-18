@@ -4,7 +4,8 @@
 	"main": "index.js",
 	"license": "MIT",
 	"dependencies": {
-		"graphql-yoga": "^1.18.3"
+		"graphql-yoga": "^1.18.3",
+		"prisma-binding": "^2.3.16"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.6",
@@ -12,6 +13,7 @@
 		"typescript": "^4.1.3"
 	},
 	"scripts": {
+		"schema": "get-graphql-schema http://localhost:4466/ > src/generated/prisma.graphql",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "nodemon --ext ts,yaml,graphql --exec 'ts-node' src/index.ts"
 	}

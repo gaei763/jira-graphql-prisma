@@ -1,0 +1,34 @@
+type User {
+  id: ID! @id
+  relationId: String!
+  imgPath: String
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Category {
+  id: ID! @id
+  name: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+enum Status {
+  Not_Started
+  On_Going
+  Done
+}
+
+type Task {
+  id: ID! @id
+  title: String!
+  description: String
+  criteria: String
+  status: Status!
+  category: Category @relation(name: "TaskCategory", onDelete: SET_NULL)
+  estimate: Int
+  owner: User @relation(name: "TaskOwner", onDelete: SET_NULL)
+  responsible: User @relation(name: "TaskResponsible", onDelete: SET_NULL)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
